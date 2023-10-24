@@ -1,23 +1,34 @@
 #include "main.h"
 
 /**
-  * _memcpy - main function prototype
+  * _strspn - main function
   *
-  * @src: Source parameter
+  * @s: Function parameter
   *
-  * @dest: Destination parameter
+  * @accept: Function parameter
   *
-  * @n: Function parameter
-  *
-  * Return: Copied memory
+  * Return: Always 0.
   */
-char *_memcpy(char *dest, char *src, unsigned int n)
+unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int k;
 
-	for (k = 0; k < n; k++)
+	unsigned int _strspn(char *s, char *accept);
+	unsigned int i = 0;
+	int k;
+
+	while (*s)
 	{
-	dest[k] = src[k];
+	for (k = 0; accept[k]; k++)
+	{
+	if (*s == accept[k])
+	{
+	i++;
+	break;
 	}
-	return (dest);
+	else if (accept[k + 1] == '\0')
+	return (i);
+	}
+	s++;
+	}
+	return (i);
 }
