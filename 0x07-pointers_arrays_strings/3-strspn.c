@@ -1,22 +1,28 @@
 #include "main.h"
-
 /**
-  * _strchr - main function
-  *
-  * @s: Function parameter
-  *
-  * @c: Function parameter
-  *
-  * Return: Always o.
-  */
-char *_strchr(char *s, char c)
+ * _strspn - Entry point
+ * @s: input
+ * @accept: input
+ * Return: Always 0 (Success)
+ */
+unsigned int _strspn(char *s, char *accept)
 {
-	int k;
+	unsigned int n = 0;
+	int r;
 
-	for (k = 0; s[k] >= '\0'; k++)
+	while (*s)
 	{
-	if (s[k] == c)
-	return (s + k);
+		for (r = 0; accept[r]; r++)
+		{
+			if (*s == accept[r])
+			{
+				n++;
+				break;
+			}
+			else if (accept[r + 1] == '\0')
+				return (n);
+		}
+		s++;
 	}
-	return (0);
+	return (n);
 }
